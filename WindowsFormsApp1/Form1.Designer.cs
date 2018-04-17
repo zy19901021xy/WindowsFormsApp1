@@ -36,14 +36,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEmpty = new System.Windows.Forms.Button();
             this.buttonReplace = new System.Windows.Forms.Button();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.openFileDialog4 = new System.Windows.Forms.OpenFileDialog();
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,10 +107,6 @@
             this.openFileDialog2.FileName = "openFileDialog2";
             this.openFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog2_FileOk);
             // 
-            // openFileDialog3
-            // 
-            this.openFileDialog3.FileName = "openFileDialog3";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -171,10 +165,6 @@
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // openFileDialog4
-            // 
-            this.openFileDialog4.FileName = "openFileDialog4";
-            // 
             // buttonAddFile
             // 
             this.buttonAddFile.Location = new System.Drawing.Point(29, 49);
@@ -231,14 +221,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.OpenFileDialog openFileDialog3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEmpty;
         private System.Windows.Forms.Button buttonReplace;
         private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.OpenFileDialog openFileDialog4;
         private System.Windows.Forms.Button buttonAddFile;
         private System.Windows.Forms.Button button1;
     }

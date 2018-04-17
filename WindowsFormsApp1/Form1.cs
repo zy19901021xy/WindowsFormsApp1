@@ -159,10 +159,14 @@ namespace WindowsFormsApp1
 
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
-            excel.Visible = false; excel.UserControl = true;
-            // 以只读的形式打开EXCEL文件
-            Workbook wb = excel.Application.Workbooks.Open(ExcelPath, missing, true, missing, missing, missing,
-             missing, missing, missing, false, missing, missing, missing, missing, missing);
+            excel.Visible = false;
+            excel.UserControl = true;
+            // 以可编辑的形式打开EXCEL文件,第三个和第十个参数指定了是否只读和是否可编辑
+            //Workbook wb = excel.Application.Workbooks.Open(ExcelPath, missing, false, missing, missing, missing,
+            // missing, missing, missing, true, missing, missing, missing, missing, missing);
+            Workbooks wbs = excel.Workbooks;
+            Workbook wb = wbs.Add(ExcelPath);
+
             //取得第一个工作薄
             Worksheet ws = (Worksheet)wb.Worksheets[1];
             //取得总记录行数   (包括标题列)
@@ -177,7 +181,7 @@ namespace WindowsFormsApp1
             }
 
             ArrayList ListFileNames = new ArrayList();
-            for (int i = 0; i <= dataGridView1.ColumnCount; i++)
+            for (int i = 0; i < dataGridView1.RowCount-1; i++)
             {
                 ListFileNames.Add(dataGridView1.Rows[i].Cells[0].Value.ToString());
             }
@@ -185,12 +189,25 @@ namespace WindowsFormsApp1
             for (int i = 0; i < ListFileNames.Count; i++)
             {
                 TxtMultyReplace(ListFileNames[i].ToString(), SearchList, ReplaceList);
-                ws.Cells[i, 3] = "转换完成!";
+                ws.Cells[i+1,3] = "转换完成!";//cells[行,列]
             }
 
+            MessageBox.Show("替换完成!");
+
+            //先删除原来的excel文件避免保存时弹出是否替换原有文件的对话框
+            File.Delete(ExcelPath);
+
+            wb.SaveAs(ExcelPath, missing, missing, missing, missing, missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange,
+                2, missing, missing, missing, missing);
+
+            //wb.Save();
             ws = null;
+            wb.Close();
+            wbs.Close();
             wb = null;
+            wbs = null;
             excel.Quit();
+            excel = null;
             
 
         }
